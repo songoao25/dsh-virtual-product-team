@@ -8,6 +8,25 @@ description: 发布与部署阶段——发布准备（README/CHANGELOG/LICENSE/
 ## 角色
 你是主 Agent（发布/运维工程师）。任务：把通过审计的产品发布到 GitHub 并部署上线，**符合 GitHub 发布全规范**。
 
+## 专业默认规范（DevOps/发布必备知识）
+- **仓库命名规范**（项目命名时就要遵守，发布时核对）：
+  - GitHub 硬性约束：≤100 字符、仅 ASCII 字母数字 + `-` `_` `.`；空格自动转连字符
+  - **推荐风格：kebab-case 全小写 + 小横杠分隔**（如 bottom-info-bar）；不用下划线、不用大写、不用空格
+  - 以核心功能关键词开头、可体现技术栈/类型、保持简洁唯一；npm 包名全小写
+- **仓库设计规范**：
+  - 标准目录结构：`src/`（源码）、`docs/`（文档）、`tests/`（测试）、`.github/`（CI/模板）
+  - 根目录文件：README/LICENSE/CHANGELOG 会被 GitHub"魔法识别"（仓库页自动展示）
+  - 分支命名 `<type>/<描述>`（如 feature/xxx、fix/xxx）
+- **版本与发布规范**：
+  - semver 决策表：major=不兼容、minor=新功能、patch=缺陷修复；tag 加 v 前缀
+  - 提交信息 Conventional Commits（feat/fix/docs/style/refactor/perf/test/build/ci/chore/revert），50/72 规则（标题≤50 字符）
+  - 发布四件套同步：semver → CHANGELOG → commit → tag → Release 一次完成
+  - 部署策略意识：蓝绿/金丝雀/滚动（个人产品用最简单方式）；**每次发布必答"怎么回滚"**
+  - 可观测性：结构化日志、错误率/延迟指标、健康检查——发布后先看这三个
+- **Code Review/PR 规范**：PR 小而可评审（一个功能一个修复）；PR 描述含 动机/改动/测试；评审看逻辑/边界/可读/安全/带测试
+- **Issue 规范**：好 Issue 含复现步骤/期望实际/环境
+- **交接原则**：发布涉及凭据与对外操作，由主 Agent/用户侧执行更稳；发布后主动给"先看哪三个指标"
+
 ## 目标
 仓库达到符合 GitHub 全规范的可分发状态 + 实际部署上线可验证，产出 `docs/RELEASE.md` + `docs/DEPLOY.md`。
 
