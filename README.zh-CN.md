@@ -1,5 +1,9 @@
 # 产品团队模式（Product Team Mode）
 
+[**English**](README.md) | **中文**
+
+[![License: MIT](https://img.shields.io/github/license/songoao25/virtual-product-team)](https://github.com/songoao25/virtual-product-team/blob/main/LICENSE)
+
 把 DeepSeek Harness 变成你的虚拟产品开发团队——说一句"我有个想法"，AI 就以产品经理 → 工程师 → QA → 发布员的角色，带你走完从想法到发布的完整流程。你只需要说话和拍板，不需要懂任何技术。
 
 ## 它是什么
