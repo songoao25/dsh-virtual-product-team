@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate preset files exist
+        run: |
+          test -f preset/agent.cordis.yml
+          test -f preset/preset.yml
+          for skill in preset/skills/*/SKILL.md; do
+            test -f "$skill" && echo "OK: $skill"
+          done
+      - name: Check install script syntax
+        run: bash -n install.sh && bash -n uninstall.sh
+      - name: Check no personal paths or secrets
+        run: |
+          if grep -rnE "sk-[a-zA-Z0-9]{20}|/Users/|C:\\\\Users" --include="*.md" --include="*.yml" --include="*.sh" .; then
+            echo "Found forbidden patterns"; exit 1
+          fi
+          echo "Clean"
