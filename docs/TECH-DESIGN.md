@@ -1,12 +1,12 @@
 # 技术设计：产品团队模式（virtual-product-team）v1.0.0
 
-> 状态：草稿待老板审核（第 4 步交付物）
+> 状态：草稿待用户审核（第 4 步交付物）
 > 日期：2026-08-16
 > 依据：PRD（第 3 步交付物，docs/PRD.md）
 
 ## 1. 设计目标
 
-在 DSH 中新增一个可分发、可卸载的 agent preset「产品团队模式」：纯对话版（无 UI 面板），老板式体验，6 个阶段技能，Stage-Gate 关卡制。自举验收：用它开发出它自己并发布 GitHub v1.0.0。
+在 DSH 中新增一个可分发、可卸载的 agent preset「产品团队模式」：纯对话版（无 UI 面板），用户主导式体验，6 个阶段技能，Stage-Gate 关卡制。自举验收：用它开发出它自己并发布 GitHub v1.0.0。
 
 ## 2. 总体架构
 
@@ -40,11 +40,11 @@ GitHub 仓库：songoao25/virtual-product-team
 
 **改动点**（相对 standard）：
 
-1. **persona 替换**（第 24-28 行）——这是"老板式体验"的灵魂：
-   - 声明：用户是**非技术背景的老板**，不要求也不期待他说任何技术词（skill/agent/preset/插件等一律不提）
+1. **persona 替换**（第 24-28 行）——这是"用户主导式体验"的灵魂：
+   - 声明：用户是**非技术背景的用户**，不要求也不期待他说任何技术词（skill/agent/preset/插件等一律不提）
    - 声明：AI 扮演**虚拟产品团队**（产品经理→工程师→QA→发布员），全程主动引导
-   - 声明：固定流水线 = 6 阶段（愿景→需求→设计→开发→QA审计→发布），每阶段产出文档、向老板汇报、**获确认才进下一阶段**（Stage-Gate）
-   - 声明：用 `ask_user_question` 收口决策，老板只需回答问题和点头
+   - 声明：固定流水线 = 6 阶段（愿景→需求→设计→开发→QA审计→发布），每阶段产出文档、向用户汇报、**获确认才进下一阶段**（Stage-Gate）
+   - 声明：用 `ask_user_question` 收口决策，用户只需回答问题和确认
 
 2. **skill-filesystem 挂载**（第 83-87 行附近）：加 `customSkillDirs` 指向 preset 自己的 `skills/` 目录（与出厂 cordis 预设同款机制，`baseUrl` 相对解析，随目录分发）
 
@@ -54,7 +54,7 @@ GitHub 仓库：songoao25/virtual-product-team
 
 ```yaml
 name: 产品团队模式
-description: 老板式对话——说"我有个想法"，AI 以虚拟产品团队带你走完 想法→需求→设计→开发→QA审计→发布 全流程，你只说话和拍板。
+description: 用户主导式对话——说"我有个想法"，AI 以虚拟产品团队带你走完 想法→需求→设计→开发→QA审计→发布 全流程，你只说话和拍板。
 order: 2
 ```
 
@@ -62,7 +62,7 @@ order: 2
 
 ## 5. 六个 SKILL.md 设计
 
-统一格式（与 DSH/Anthropic SKILL.md 同构）：frontmatter（`name` kebab-case + `description`）+ 正文。每个技能包含：**角色**（谁在干）、**目标**、**对老板的追问清单**、**产出物模板**、**验收标准**、**向老板汇报的句式**。
+统一格式（与 DSH/Anthropic SKILL.md 同构）：frontmatter（`name` kebab-case + `description`）+ 正文。每个技能包含：**角色**（谁在干）、**目标**、**对用户的追问清单**、**产出物模板**、**验收标准**、**向用户汇报的句式**。
 
 | 技能 | 对应环节（12→6 归纳） | 核心内容 |
 |---|---|---|
@@ -100,7 +100,7 @@ order: 2
 | # | 任务 | 验收标准 |
 |---|---|---|
 | T1 | 建 preset 目录骨架（preset.yml + agent.cordis.yml + skills/） | 目录结构与设计一致 |
-| T2 | 写 persona（老板人设 + 阶段门禁总则） | 覆盖 §3 全部要点 |
+| T2 | 写 persona（用户视角人设 + 阶段门禁总则） | 覆盖 §3 全部要点 |
 | T3 | agent.cordis.yml 挂载 customSkillDirs → skills/ | 参照 cordis 预设同款写法，路径随目录解析 |
 | T4 | 写 01-vision SKILL.md | 含追问清单+产品定义模板+验收 |
 | T5 | 写 02-requirements SKILL.md | 含 PRD 模板（引用本项目 PRD 为范本） |
