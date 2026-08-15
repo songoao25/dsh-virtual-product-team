@@ -3,6 +3,11 @@
 **English** | [**中文**](README.zh-CN.md)
 
 [![License: MIT](https://img.shields.io/github/license/songoao25/virtual-product-team)](https://github.com/songoao25/virtual-product-team/blob/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/songoao25/virtual-product-team)](https://github.com/songoao25/virtual-product-team/releases)
+[![CI](https://img.shields.io/github/actions/workflow/status/songoao25/virtual-product-team/ci.yml)](https://github.com/songoao25/virtual-product-team/actions)
+[![Last Commit](https://img.shields.io/github/last-commit/songoao25/virtual-product-team)](https://github.com/songoao25/virtual-product-team)
+[![Stars](https://img.shields.io/github/stars/songoao25/virtual-product-team)](https://github.com/songoao25/virtual-product-team)
+[![Dependabot](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=dependabot)](https://github.com/songoao25/virtual-product-team/security/dependabot)
 
 Turn DeepSeek Harness into your virtual product development team. Say "I have an idea" and the AI walks you through the full pipeline — Product Manager → Engineer → QA → Release Engineer — from idea to shippable product. You only talk and make decisions. No technical knowledge required.
 
