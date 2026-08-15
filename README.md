@@ -1,5 +1,9 @@
 # Product Team Mode
 
+**English** | [**中文**](README.zh-CN.md)
+
+[![License: MIT](https://img.shields.io/github/license/songoao25/virtual-product-team)](https://github.com/songoao25/virtual-product-team/blob/main/LICENSE)
+
 Turn DeepSeek Harness into your virtual product development team. Say "I have an idea" and the AI walks you through the full pipeline — Product Manager → Engineer → QA → Release Engineer — from idea to shippable product. You only talk and make decisions. No technical knowledge required.
 
 ## What it is
