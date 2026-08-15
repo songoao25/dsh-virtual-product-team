@@ -21,16 +21,18 @@ Turn DeepSeek Harness into your virtual product development team. Say "I have an
 
 From start to finish, you never write code, never learn the process, and never need to remember technical jargon.
 
-## The six stages
+## The eight stages (all 12 phases covered)
 
 | Stage | What happens | Output |
 |---|---|---|
-| 1. Vision | Clarify the idea (who / what problem / why) | Product definition |
-| 2. Requirements | Turn the definition into concrete requirements | Requirements doc (PRD) |
-| 3. Design | Technical plan and task breakdown | Tech design + task list |
-| 4. Development | Implement the task list | Code + tests |
-| 5. QA & Audit | Feature-by-feature acceptance + security checks | Audit report |
-| 6. Release | Prepare distributable artifacts and promo materials | README / install scripts / version / promo copy |
+| 1. Idea validation | Research market / competitors / feasibility | Validation conclusion |
+| 2. Product definition & requirements | Positioning + concrete requirements with acceptance criteria | Product definition + PRD |
+| 3. Technical design | Technical plan and task breakdown | Tech design + task list |
+| 4. Development & quality | Implement + test + security audit | Code + audit report |
+| 5. Release & deploy | Prepare distributable artifacts (GitHub standards) + go live | README / version / Release / deploy check |
+| 6. Promotion & cold start | Launch kit (video script / article / channels) | Promo materials |
+| 7. Operations & growth | Metrics dashboard, feedback channels, growth actions | Operations plan |
+| 8. Iteration & maintenance | Feedback pool, roadmap, then loop to the next round | Roadmap |
 
 ## Installation
 
