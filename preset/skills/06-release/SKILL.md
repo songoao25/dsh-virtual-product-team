@@ -39,16 +39,29 @@ description: 发布阶段——整理可分发产物（README 中英/LICENSE/CHA
    - [ ] PR 模板（`.github/pull_request_template.md`）
    - [ ] `AGENTS.md`（DSH 生态产品强烈建议：给 AI 助手的仓库说明）
 
+   **README 徽章（标准 7 件套，顺序固定，全带链接）**
+   - [ ] 徽章区位于 README 顶部（标题→语言切换→徽章→一句话简介），中英文 README 放同一组
+   - [ ] License：`img.shields.io/github/license/<OWNER>/<REPO>` → 链接到 LICENSE
+   - [ ] Release：`img.shields.io/github/v/release/<OWNER>/<REPO>` → 链接到 releases（**先确认已发 Release/tag，无 Release 时徽章显示灰色 no releases，勿裸放**）
+   - [ ] CI：`img.shields.io/github/actions/workflow/status/<OWNER>/<REPO>/ci.yml` → 链接到 actions（**文件名必须与实际 workflow 完全一致**）
+   - [ ] Last commit：`img.shields.io/github/last-commit/<OWNER>/<REPO>`
+   - [ ] Stars：`img.shields.io/github/stars/<OWNER>/<REPO>` → 链接到 stargazers
+   - [ ] Dependabot：`img.shields.io/badge/dependabot-enabled-025e8c?logo=dependabot`（开启 dependabot 后用）
+   - [ ] Downloads（可选）：`img.shields.io/github/downloads/<OWNER>/<REPO>/total`（**仅当 Release 带资产时才有意义**）
+   - [ ] **禁静态徽章冒充版本号**（版本只用动态 github/v/release）；徽章总数控制 5–8 个
+   - [ ] 每个徽章 URL 用 `curl -I` 验证返回 200；版本徽章显示值 == git tag == CHANGELOG 顶部 == Release title（四者一致）
+
    **GitHub 设置项（Must）**
    - [ ] 仓库公开（Public）
    - [ ] description：一句话讲清"是什么+解决什么问题"，**禁内部代号**
-   - [ ] topics：至少 3–5 个（deepseek-harness / dsh / dsh-plugin / agent-preset / 语言 / 用途）
+   - [ ] topics：生态词全套（deepseek-harness / dsh / dsh-plugin / dsh-plugins / awesome-dsh-plugin）+ 类型词（plugin 或 preset/agent-preset）+ 功能词，共 5–10 个
    - [ ] 默认分支为 `main`
    - [ ] 开启 Discussions（可选，推荐）
 
    **发布前必检**
    - [ ] 零密钥、零个人路径（含 `git log -p --all | grep -iE 'sk-[a-z0-9]|api[_-]?key|BEGIN (RSA|OPENSSH|EC) PRIVATE'` 历史扫描）
-   - [ ] README 徽章与事实一致（版本徽章显示的 tag 必须真实存在）
+   - [ ] 提交信息遵循 Conventional Commits（feat/fix/docs/style/refactor/perf/test/build/ci/chore/revert，禁止裸写 "update"/"fix bug"）
+   - [ ] 四件套同步：semver 决策 → 更新 CHANGELOG → commit → 打 tag → 建 Release 一次完成
 3. **提交与发布前，先探测本机可用的 GitHub 提交 Agent**：
    - **探测本机 Agent**（用 bash/fs 工具检查本机装有哪些 AI 助手，它们通常已配置好 GitHub 能力）：
      - 检查常见应用目录：`ls /Applications` 与 `~/Applications`，查找 KUN / WorkBuddy / ChatGPT / Claude / Cursor / Trae 等；
