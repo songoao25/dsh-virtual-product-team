@@ -9,7 +9,5 @@
 
 # 本机交接材料（含本机路径，不随仓库分发）
 docs/RELEASE-HANDOFF.md
-# 本机交接材料（含本机路径，不随仓库分发）
-docs/RELEASE-HANDOFF.md
 docs/KUN-TASK.md
 docs/release-notes-v1.0.0.md

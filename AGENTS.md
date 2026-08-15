@@ -10,8 +10,9 @@
 
 - `preset/` — 预设本体
   - `preset.yml` — 预设元数据（name/description/order）
-  - `agent.cordis.yml` — 预设组合（persona 人设 + 工具 + 技能挂载）
-  - `skills/<编号>-<名>/SKILL.md` — 6 个阶段技能（vision/requirements/design/development/qa/release）
+  - `agent.cordis.yml` — 预设组合（persona 人设 + 工具 + 技能挂载 + v1.1.0 自我改造工具）
+  - `skills/<编号>-<名>/SKILL.md` — 8 个阶段技能（idea-validation/product-prd/design/dev-qa/release-deploy/promotion/operations/iteration，12 环节全覆盖）
+  - `skills/cordis-plugin-development`、`skills/editing-cordis-compositions` — 官方工艺技能（v1.1.0，开发 DSH 模式/插件时用，来自官方创造模式同款）
 - `install.sh` / `uninstall.sh` — 一键安装/卸载（拷 preset 到 `~/.dsh/.agent-presets/`）
 - `docs/` — PRD、技术设计、审计报告、宣传材料
 - `.github/` — CI、CodeQL、Issue/PR 模板、Dependabot
@@ -22,7 +23,7 @@
 - 对外文档（README/CHANGELOG）只写用户视角功能，严禁开发过程流水账与内部代号
 - 提交遵循 Conventional Commits（feat/fix/docs/test/chore）
 - 分发铁律：零密钥、零个人路径、作者署名 songoao25、只用语义化版本号
-- 06-release 技能负责 GitHub 发布：先探测本机 Agent → 出选择题问用户用哪个 → 按所选执行（可直调如 KUN exec 则直调）
+- 05-release-deploy 技能负责 GitHub 发布：先探测本机 Agent → 出选择题问用户用哪个 → 按所选执行（可直调如 KUN exec 则直调）
 
 ## 常用命令
 

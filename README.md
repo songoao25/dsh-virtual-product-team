@@ -65,7 +65,9 @@ After uninstalling, new conversations return to the default mode. No leftovers, 
 
 **Q: Does it affect my existing conversations/modes?** A: No. It's just one additional mode. Standard, Creator, and other modes remain unchanged.
 
-**Q: What are the v1 limitations?** A: Conversation-only, no visual progress panel. The release stage prepares release materials; pushing to GitHub is done by you.
+**Q: What are the v1 limitations?** A: Conversation-only, no visual progress panel. For GitHub publishing, the release stage asks you which local AI assistant to use and then handles the commit/tag/Release with it.
+
+**Q: Can it develop DSH modes/plugins (like Creator mode)?** A: Yes, since v1.1.0. The mode ships the same self-modification toolset and the two official Cordis authoring skills as Creator mode, so your product team can build new DSH modes and plugins too. That toolset carries shell-level trust and is only used when you explicitly ask for a DSH-specific product.
 
 ## License
 
