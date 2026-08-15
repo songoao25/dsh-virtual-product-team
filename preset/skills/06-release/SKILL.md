@@ -37,26 +37,33 @@ description: 发布阶段——整理可分发产物（README 中英/LICENSE/CHA
 - 问题 → 方案 → 演示 → 对比（vs 普通模式）→ 安装 → 行动号召
 ```
 
-3. **提交与发布（默认直接执行，不让老板动手）**：
-   - **优先直接执行**：本机如有 KUN（`command -v kun` 存在），通过 `kun exec bash` 通道直接执行 git 操作（绕开模型凭据问题，无需老板复制提示词）：
+3. **提交与发布前，先探测本机可用的 GitHub 提交 Agent**：
+   - **探测本机 Agent**（用 bash/fs 工具检查本机装有哪些 AI 助手，它们通常已配置好 GitHub 能力）：
+     - 检查常见应用目录：`ls /Applications` 与 `~/Applications`，查找 KUN / WorkBuddy / ChatGPT / Claude / Cursor / Trae 等；
+     - 检查常见 CLI：`command -v kun`、`command -v gh`、`command -v claude`、`command -v cursor` 等；
+     - 把探测到的候选 Agent 整理成列表（没探测到也没关系，让老板从常用项里选）。
+4. **出选择题问老板**（ask_user_question，一次问清，**无预设优先级，一律先问**）：
+   - 问题："发布到 GitHub 这一步，你想用哪个本地 AI 助手帮你提交？"
+   - 选项：每个探测到的 Agent（如 KUN / WorkBuddy / ChatGPT）+「暂不提交，先放着」。
+   - 老板选**某 Agent** → 按下方「执行提交」。
+   - 老板选**暂不提交** → 说明发布材料已就绪，随时可以继续。
+5. **执行提交**（按老板所选 Agent）：
+   - **若能直接调用所选 Agent**（如 KUN 可通过 `kun exec bash` 通道直接执行 git 操作，绕开模型凭据问题）：直接经该通道执行，不让老板动手——
      - `git init -b main && git add -A`（如未初始化）
      - `git commit -m "feat: <产品名> v1.0.0——<一句话>"`（Conventional Commits）
      - `git tag v1.0.0`
-     - 建仓推送：`gh repo create <github用户名>/<仓库名> --public --source . --push`（若 gh 已登录；或经 KUN exec 执行 `gh auth status` 确认）
+     - 建仓推送：`gh repo create <github用户名>/<仓库名> --public --source . --push`（若 gh 已登录；或经该通道执行 `gh auth status` 确认）
      - 推 tag：`git push origin v1.0.0`
      - 创建 Release：把用户视角说明写入临时文件，`gh release create v1.0.0 --title "<产品名> v1.0.0" --notes-file <文件>`
-   - **每次 git 操作都通过 KUN exec 执行**（`kun exec --data-dir ~/.kun --workspace <项目路径> bash --args '{"command":"..."}'`），不直接用本机 shell 操作 git——保持"DSH 经 KUN 驱动"的统一通道。
+   - **若不能直接调用所选 Agent**：生成标注"给所选 Agent"的交接材料（`docs/RELEASE-HANDOFF.md` + 对话内提示词），供老板复制到该 Agent 执行。
    - **验证**：用 GitHub API（`api.github.com/repos/<owner>/<repo>`、`/tags`、`/releases`）独立确认仓库/分支/tag/Release 存在。
-4. **KUN 不可用时的备选**（`command -v kun` 不存在或 exec 失败）：
-   - **主动告知老板**：当前环境无法直接提交 GitHub（读不到令牌或配置麻烦），需要借助本地其他 AI 助手。
-   - **探测本机 Agent**（`ls /Applications`、`command -v gh` 等）并**出选择题**问老板用哪个（ask_user_question，选项含「暂不提交」）。
-   - 老板选定后，生成标注"给所选 Agent"的交接材料（`docs/RELEASE-HANDOFF.md` + 对话内提示词），供老板复制到该 Agent 执行。
-5. **汇报 + 请求确认**：向老板汇报"已发布到 GitHub：仓库 <owner>/<repo>（公开，main 分支 + tag v1.0.0 + Release 已建），链接：<url>"，**老板确认即完成全流程**。
+6. **汇报 + 请求确认**：向老板汇报"已按你选的 <所选 Agent> 发布到 GitHub：仓库 <owner>/<repo>（公开，main 分支 + tag v1.0.0 + Release 已建），链接：<url>"，**老板确认即完成全流程**。
 
 ## 验收标准
 - [ ] 分发清单全绿
 - [ ] README 只写用户视角功能，无开发流水账
 - [ ] 版本号 semver 规范，tag 对应
 - [ ] 宣传材料含一句话部署提示词
-- [ ] 已发布到 GitHub：仓库公开、main 分支 + tag + Release 已建（经 KUN exec 直接执行；KUN 不可用时才出选择题借其他 Agent）
+- [ ] 已探测本机 Agent 并出选择题让老板选择（无预设优先级）；老板选定后按所选 Agent 执行（可直调则直调，否则交接）；或老板选择暂不提交
+- [ ] 已发布到 GitHub（若老板选择提交）：仓库公开、main 分支 + tag + Release 已建
 - [ ] 零密钥、零个人路径
