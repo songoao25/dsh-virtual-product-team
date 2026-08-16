@@ -1,0 +1,12 @@
+# dsh-virtual-product-team bundle patch — the skill layer of this distribution.
+# `dsh plugin --profile <p> add dsh-virtual-product-team` makes the 8-stage
+# pipeline skills available to every session of that profile. The full
+# 产品团队模式 preset (persona + tools + skills) installs separately with ./install.sh.
+- insert:
+    - id: skill-filesystem-vpt
+      name: '@deepseek-ai/dsh-skill-filesystem'
+      config:
+        providerName: dsh-virtual-product-team
+        includeDefaultRoots: false
+        customSkillDirs:
+          - !!js "process.getBuiltinModule('node:url').fileURLToPath(new URL('preset/skills/', baseUrl))"

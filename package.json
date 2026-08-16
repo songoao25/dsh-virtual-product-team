@@ -1,0 +1,33 @@
+{
+  "name": "dsh-virtual-product-team",
+  "version": "1.2.0",
+  "description": "A DeepSeek Harness agent mode that walks you through the full product pipeline — from idea validation to release, promotion, and iteration — by saying \"I have an idea\".",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "agent-preset",
+    "product-management",
+    "ai-agent",
+    "virtual-team",
+    "product-team"
+  ],
+  "files": [
+    "cordis.patch.yml",
+    "preset/",
+    "install.sh",
+    "uninstall.sh",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node tests/run-all.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
