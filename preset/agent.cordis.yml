@@ -1,4 +1,4 @@
-# The `virtual-product-team` agent preset: 用户主导式对话的虚拟产品团队。
+# The `dsh-virtual-product-team` agent preset: 用户主导式对话的虚拟产品团队。
 #
 # 以官方 `standard` 预设为底（保留全部官方工具行），做三处改动：
 #   1. persona 替换为「用户的产品团队」人设（零技术词、12 环节 → 8 阶段流水线、Stage-Gate 门禁、多 Agent 协同）

@@ -1,4 +1,4 @@
-# 审计报告：产品团队模式（virtual-product-team）v1.1.0
+# 审计报告：产品团队模式（dsh-virtual-product-team）v1.1.0
 
 > 日期：2026-08-16
 > 审计方式：独立安全审计子 Agent（与开发职责分离）+ 主 Agent 汇总
@@ -11,13 +11,13 @@
 | ① agent.cordis.yml 加入 tool-cordis | ✅ 通过 | 与官方创造模式写法逐字一致（id: tool-cordis / @deepseek-ai/dsh-tool-cordis）；YAML 30 个顶层 id 无重复、可解析（当前会话挂载成功为证） |
 | ② 复制两份官方技能 | ✅ 通过 | cordis-plugin-development、editing-cordis-compositions 与官方源文件完全一致；frontmatter name kebab-case 合规、description 完整、零个人路径零密钥 |
 | ③ persona 更新 | ✅ 通过 | 新增「平台产品能力」段落：声明可开发 DSH 类产品 + 安全边界（等同 shell 权限，仅开发 DSH 类产品时使用） |
-| ④ 同步安装副本 | ✅ 通过 | `diff -r` 仓库 preset/ 与 ~/.dsh/.agent-presets/virtual-product-team/ 完全一致；运行时技能目录已加载两份新技能 |
+| ④ 同步安装副本 | ✅ 通过 | `diff -r` 仓库 preset/ 与 ~/.dsh/.agent-presets/dsh-virtual-product-team/ 完全一致；运行时技能目录已加载两份新技能 |
 | ⑤ 文档更新 | ✅ 通过 | CHANGELOG v1.1.0 条目、README 中英 FAQ（能力 + 权限警告）、AGENTS.md 技能清单与编号（05-release-deploy）均更新 |
 | ⑥ 重新审计（本文档） | ✅ 本次完成 | 覆盖 8 技能架构 + 新增能力 |
 
 ## 测试结果
 
-- `diff -r preset ~/.dsh/.agent-presets/virtual-product-team` → 一致（退出码 0）
+- `diff -r preset ~/.dsh/.agent-presets/dsh-virtual-product-team` → 一致（退出码 0）
 - `./install.sh` 实测：检测到已安装 → 覆盖更新 → 安装完成（含 chmod 与目录重建）
 - 运行时验证：当前会话技能目录出现 cordis-plugin-development / editing-cordis-compositions → 挂载生效
 - 技能源一致性：两份技能与出厂 cordis preset 逐字节一致；tool-cordis 行与官方逐字一致

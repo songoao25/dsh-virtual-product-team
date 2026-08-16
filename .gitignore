@@ -8,8 +8,7 @@
 .vscode/
 
 # 本机交接材料（含本机路径，不随仓库分发）
-docs/RELEASE-HANDOFF.md
-docs/KUN-TASK.md
+# RELEASE-HANDOFF.md / KUN-TASK.md 已删（v1.0.0 建仓交接任务早已完成）
 docs/release-notes-v1.0.0.md
 docs/release-notes-v1.1.0.md
 docs/PROMO.md

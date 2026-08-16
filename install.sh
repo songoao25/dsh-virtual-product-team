@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 产品团队模式（virtual-product-team）— 一键安装脚本
+# 产品团队模式（dsh-virtual-product-team）— 一键安装脚本
 # 用法：./install.sh
 # 作用：把 preset 安装到 DSH 用户级预设目录（~/.dsh/.agent-presets/），
 #       新建对话时即可选择「产品团队模式」。
@@ -7,7 +7,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PRESET_DIR="$ROOT/preset"
-TARGET="$HOME/.dsh/.agent-presets/virtual-product-team"
+TARGET="$HOME/.dsh/.agent-presets/dsh-virtual-product-team"
 
 command -v dsh >/dev/null 2>&1 || { echo "错误：未找到 dsh CLI（请先安装 DeepSeek Harness）"; exit 1; }
 

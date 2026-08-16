@@ -7,12 +7,12 @@
 产品为 DSH 对话模式（agent preset），部署 = 安装到 DSH 用户级预设目录：
 
 ```bash
-cd /Users/songsong/Code/virtual-product-team
+cd /Users/songsong/Code/dsh-virtual-product-team
 ./install.sh
 # 或全新安装：git clone <仓库> && ./install.sh
 ```
 
-已执行（T4）：install.sh 实测通过 → `~/.dsh/.agent-presets/virtual-product-team/` 更新完成。
+已执行（T4）：install.sh 实测通过 → `~/.dsh/.agent-presets/dsh-virtual-product-team/` 更新完成。
 
 ## 冒烟测试结果
 

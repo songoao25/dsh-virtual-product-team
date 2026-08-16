@@ -19,7 +19,7 @@
 
 ## 关键约定
 
-- 修改 `preset/` 后需同步安装副本：`~/.dsh/.agent-presets/virtual-product-team/`
+- 修改 `preset/` 后需同步安装副本：`~/.dsh/.agent-presets/dsh-virtual-product-team/`
 - 对外文档（README/CHANGELOG）只写用户视角功能，严禁开发过程流水账与内部代号
 - 提交遵循 Conventional Commits（feat/fix/docs/test/chore）
 - 分发铁律：零密钥、零个人路径、作者署名 songoao25、只用语义化版本号

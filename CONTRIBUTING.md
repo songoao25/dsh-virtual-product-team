@@ -5,7 +5,7 @@
 ## 如何贡献
 
 ### 报告 Bug
-- 先搜索 [Issues](https://github.com/songoao25/virtual-product-team/issues) 是否已存在；
+- 先搜索 [Issues](https://github.com/songoao25/dsh-virtual-product-team/issues) 是否已存在；
 - 新建 Issue 时请包含：复现步骤、期望行为、实际行为、环境信息。
 
 ### 提出新功能
@@ -29,7 +29,7 @@
 - 主要文件结构：
   - `preset/` — 预设本体（agent.cordis.yml + skills/）
   - `install.sh` / `uninstall.sh` — 安装卸载脚本
-- 修改 preset 后需同步安装副本（`~/.dsh/.agent-presets/virtual-product-team/`）。
+- 修改 preset 后需同步安装副本（`~/.dsh/.agent-presets/dsh-virtual-product-team/`）。
 
 ## 行为准则
 

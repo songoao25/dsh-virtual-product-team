@@ -78,7 +78,7 @@
    - 标签会直接影响 GitHub 搜索排序与 Explore 收录。
 5. **默认分支（Default branch）**：Settings → Branches。规范为 `main`。创建仓库时选择 `main`；旧仓库可在 Branches 设置中切换并删除 master。分支重命名后 GitHub 会自动重定向旧链接。
 6. **归档（Archive）**：项目停止维护时，Settings → Danger Zone → Archive this repository。归档后仓库只读、不再接受 issue/PR，这是对用户的负责任交代（比悄悄消失专业）。个人项目多仓库时，归档是常见且体面的做法。
-7. **仓库命名**：全小写短横线（kebab-case，如 `bottom-info-bar`、`virtual-product-team`），便于 URL 分享与包管理器解析。
+7. **仓库命名**：全小写短横线（kebab-case，如 `bottom-info-bar`、`dsh-virtual-product-team`），便于 URL 分享与包管理器解析。
 
 ### 为什么重要
 - description/topics 是"被发现"的唯二入口，缺失 = 项目在 GitHub 生态里隐形，awesome 列表直接拒绝收录（评审标准明确要求 description）。
@@ -411,10 +411,10 @@ GitHub 默认提供约 10 个标签（bug、enhancement、documentation、good f
 ### 9.1 README 徽章（Should）
 放在 README 第一屏标题下方，3–5 个即可（太多显廉价）。常用（shields.io 动态徽章）：
 ```markdown
-[![License](https://img.shields.io/github/license/songoao25/virtual-product-team)](LICENSE)
-[![Release](https://img.shields.io/github/v/release/songoao25/virtual-product-team)](https://github.com/songoao25/virtual-product-team/releases)
-[![CI](https://github.com/songoao25/virtual-product-team/actions/workflows/ci.yml/badge.svg)](https://github.com/songoao25/virtual-product-team/actions)
-[![Stars](https://img.shields.io/github/stars/songoao25/virtual-product-team)](https://github.com/songoao25/virtual-product-team)
+[![License](https://img.shields.io/github/license/songoao25/dsh-virtual-product-team)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/songoao25/dsh-virtual-product-team)](https://github.com/songoao25/dsh-virtual-product-team/releases)
+[![CI](https://github.com/songoao25/dsh-virtual-product-team/actions/workflows/ci.yml/badge.svg)](https://github.com/songoao25/dsh-virtual-product-team/actions)
+[![Stars](https://img.shields.io/github/stars/songoao25/dsh-virtual-product-team)](https://github.com/songoao25/dsh-virtual-product-team)
 ```
 - 推荐组合：License + Release（版本）+ CI 状态 + Stars/Downloads。
 - 2025 年起 GitHub 提供**官方仓库徽章**（Settings → General → Badges：stars/forks/license/PR 等，可复制 Markdown），无需第三方也可，风格统一。
@@ -443,7 +443,7 @@ authors:
 title: "Virtual Product Team"
 version: "1.0.0"
 date-released: "2026-08-16"
-url: "https://github.com/songoao25/virtual-product-team"
+url: "https://github.com/songoao25/dsh-virtual-product-team"
 ```
 每次发版需同步 version/date-released（可在发布流水线里自动更新）。
 

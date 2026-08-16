@@ -1,4 +1,4 @@
-# PRD：产品团队模式（virtual-product-team）v1.0.0
+# PRD：产品团队模式（dsh-virtual-product-team）v1.0.0
 
 > 状态：草稿待用户审核（第 3 步交付物）
 > 日期：2026-08-16
@@ -22,7 +22,7 @@
 
 ### FR-1 模式注册
 安装后，新建对话时可选择「产品团队模式」预设。
-- 验收：目录 `~/.dsh/.agent-presets/virtual-product-team/` 放置后，新建会话的预设选择器中可见「产品团队模式」。
+- 验收：目录 `~/.dsh/.agent-presets/dsh-virtual-product-team/` 放置后，新建会话的预设选择器中可见「产品团队模式」。
 
 ### FR-2 用户主导式启动
 用户直接说"我有个想法……"或描述想法，AI 自动进入流水线第 1 阶段，用户无需说任何技术词汇（skill / agent / preset / 插件等均不必提）。

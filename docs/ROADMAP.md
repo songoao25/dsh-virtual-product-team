@@ -1,4 +1,4 @@
-# 迭代路线图：产品团队模式（virtual-product-team）
+# 迭代路线图：产品团队模式（dsh-virtual-product-team）
 
 > 日期：2026-08-16
 > 阶段 8（迭代与维护，环节⑫）交付物。G8 通过后回环开发。
@@ -18,7 +18,7 @@
    - `cordis-plugin-development`（怎么写 DSH 插件）
    - `editing-cordis-compositions`（怎么改运行组合/写新模式）
 3. **persona 更新**：说明本模式现可开发"DSH 自身模式/插件"类产品，开发这类产品时加载上述技能；文件头注释同步
-4. **同步安装副本**：`~/.dsh/.agent-presets/virtual-product-team/` 与仓库逐文件一致（diff 验证）
+4. **同步安装副本**：`~/.dsh/.agent-presets/dsh-virtual-product-team/` 与仓库逐文件一致（diff 验证）
 5. **文档更新**：CHANGELOG 增补 v1.1.0；README（中英）能力说明同步；AGENTS.md 技能清单更新
 6. **重新审计**：按 8 阶段架构 + 新能力重写 docs/AUDIT.md（含安全边界提示：tool-cordis = 会话等同 shell 权限）
 

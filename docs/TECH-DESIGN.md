@@ -1,4 +1,4 @@
-# 技术设计：产品团队模式（virtual-product-team）v1.0.0
+# 技术设计：产品团队模式（dsh-virtual-product-team）v1.0.0
 
 > 状态：草稿待用户审核（第 4 步交付物）
 > 日期：2026-08-16
@@ -11,7 +11,7 @@
 ## 2. 总体架构
 
 ```
-GitHub 仓库：songoao25/virtual-product-team
+GitHub 仓库：songoao25/dsh-virtual-product-team
 ├── preset/                          ← 预设内容（分发时整目录拷贝）
 │   ├── preset.yml                   ← 展示名「产品团队模式」+ 描述 + order
 │   ├── agent.cordis.yml             ← 预设组合：persona + 工具 + skills 挂载
@@ -75,8 +75,8 @@ order: 2
 
 ## 6. 安装/卸载设计
 
-- **install.sh**：`cp -r preset/ ~/.dsh/.agent-presets/virtual-product-team/`（可选 `--profile` 参数预留；幂等，重复执行覆盖更新）
-- **uninstall.sh**：`rm -rf ~/.dsh/.agent-presets/virtual-product-team/`，提示"新建会话后标准模式自动恢复"
+- **install.sh**：`cp -r preset/ ~/.dsh/.agent-presets/dsh-virtual-product-team/`（可选 `--profile` 参数预留；幂等，重复执行覆盖更新）
+- **uninstall.sh**：`rm -rf ~/.dsh/.agent-presets/dsh-virtual-product-team/`，提示"新建会话后标准模式自动恢复"
 - 验证：安装后新建会话 → 预设选择器可见「产品团队模式」；`--dump-config` 无残留概念（preset 不写 patch 层，天然无残留）
 
 ## 7. 验收方式
@@ -93,7 +93,7 @@ order: 2
 | DSH rc 阶段破坏性变更 | 只用稳定机制（preset 目录+SKILL.md+customSkillDirs，均已核实）；锁定文档记录版本 |
 | persona 写太长稀释注意力 | 阶段细节放 SKILL.md（按需加载），persona 只放"角色+流程+门禁"总则 |
 | 模型不遵循门禁（抢跑） | persona 明文"未获确认不得推进"；每个 SKILL.md 尾部重申；自举验收时实测 |
-| 用户目录名冲突 | 固定 id `virtual-product-team`，卸载脚本校验后再删 |
+| 用户目录名冲突 | 固定 id `dsh-virtual-product-team`，卸载脚本校验后再删 |
 
 ## 9. 任务拆分清单（开发阶段用）
 
