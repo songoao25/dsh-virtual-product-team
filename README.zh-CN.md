@@ -1,4 +1,4 @@
-# 产品团队模式（Product Team Mode）
+# 产品团队模式
 
 [**English**](README.md) | **中文**
 
