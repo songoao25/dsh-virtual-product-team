@@ -7,7 +7,7 @@
 产品为 DSH 对话模式（agent preset），部署 = 安装到 DSH 用户级预设目录：
 
 ```bash
-cd /Users/songsong/Code/dsh-virtual-product-team
+cd dsh-virtual-product-team  # 或你的克隆目录
 ./install.sh
 # 或全新安装：git clone <仓库> && ./install.sh
 ```
