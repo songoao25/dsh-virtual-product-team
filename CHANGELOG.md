@@ -2,6 +2,18 @@
 
 本项目遵循 [语义化版本](https://semver.org/lang/zh-CN/)（semver）。
 
+## v1.2.0 — 2026-08-16
+
+### 新增
+- **技能包安装支持**：本仓库现在同时是一个 DSH bundle 插件——可通过
+  `dsh plugin --profile <p> add dsh-virtual-product-team` 把它当作"技能包"安装，安装后该 profile 的每个会话都能按需加载 8 个阶段技能（想法验证 → … → 迭代）；
+- 新增 `dsh.bundle` 清单（根 `package.json`）与 `cordis.patch.yml` 技能补丁，满足 DSH 插件精选榜收录要求；
+- 新增 bundle 测试（`tests/`，`npm test`）。
+
+### 说明
+- bundle 安装只提供技能层（skill-filesystem 补丁）；完整模式（人设 + 工具 + 技能）仍由 `./install.sh` 安装。两者采用相同技能内容，可选用一种即可，建议用完整模式（一处安装即含全部能力）。
+- 人设、功能、预设本体均无变化。
+
 ## v1.1.0 — 2026-08-16
 
 ### 新增

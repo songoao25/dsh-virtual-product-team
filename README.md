@@ -57,9 +57,28 @@ cd dsh-virtual-product-team
 
 After uninstalling, new conversations return to the default mode. No leftovers, other modes are untouched.
 
+## Install as a skill pack (optional)
+
+Since v1.2.0 the repo also declares a DSH `bundle`, so you can install it as a **skill pack** on a profile:
+
+```bash
+dsh plugin --profile <profile-name> add dsh-virtual-product-team
+```
+
+This gives every session of that profile on-demand access to the 8 pipeline skills (idea validation → … → iteration), with no preset.
+
+There are two ways to get the skills — pick whichever fits:
+
+| Method | What you get | Command |
+|---|---|---|
+| **Full mode (recommended)** | Preset + persona + tools + the 10 skills (8 stage + 2 authoring) | `./install.sh` |
+| **Skill pack only** | Just the 8 stage skills, available to any session of a profile | `dsh plugin --profile <p> add dsh-virtual-product-team` |
+
+The two share the same skill content, so you only need one. Full mode is recommended: one install covers everything the mode offers. (The bundle installs only the skill layer — the preset, persona, and tools still come from `./install.sh`.)
+
 ## FAQ
 
-**Q: Is it a plugin?** A: No, it's a conversation mode (preset). It changes how the AI behaves (becoming your product team); it doesn't change any existing DSH functionality.
+**Q: Is it a plugin?** A: It is primarily a conversation mode (preset). Since v1.2.0 it is also shipped as a DSH bundle so the 8 pipeline skills can be installed as a skill pack per profile; this is complementary, the full mode still installs with `./install.sh`.
 
 **Q: Do I need to know tech?** A: No. The AI makes all technical decisions. You just answer questions and approve.
 
