@@ -358,7 +358,7 @@ def test_负数价格_抛错():
 - [12-Factor App（官方）](https://12factor.net/) 与 [Real Python 术语表解读](https://realpython.com/ref/software-engineering-glossary/twelve-factor-app/)
 - [12-Factor Rails 实践 RFC（gov.uk）](https://raw.githubusercontent.com/alphagov/govuk-rfcs/main/rfc-026-12-factor-rails-apps.md)
 - [SemVer 语义化版本（官方）](https://semver.org/)
-- [Git 提交信息指南（Sourcegraph 工程手册：描述 why）](https://raw.githubusercontent.com/sourcegraph/about/master/handbook/engineering/commit_messages.md)
+- [Git 提交信息指南（如何写好 commit message：描述 why）](https://cbea.ms/git-commit/)
 - [50/72 提交信息规则白皮书](https://rdkcentral.github.io/rdk-halif-aidl/0.21.0/whitepapers/standardizing_git_commit_messages/)
 - [.gitignore 是什么与怎么写（GitHub 社区讨论）](https://github.com/orgs/community/discussions/165862) 与 [Why use .gitignore（Stack Overflow）](https://stackoverflow.com/questions/28029016/why-use-gitignore-and-why-do-i-need-to-not-include-certain-files)
 - [PR 评审指南（Backstage 工程手册：小 PR 可评审）](https://raw.githubusercontent.com/backstage/backstage/master/REVIEWING.md)
