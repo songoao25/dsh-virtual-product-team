@@ -33,3 +33,12 @@ jobs:
             echo "Found secret-like patterns"; exit 1
           fi
           echo "No secrets"
+      - name: Check private work materials stay out of Git
+        run: |
+          # 运行模式的过程材料必须留在被忽略的 .product-team/，不能进入公开仓库。
+          git check-ignore -q .product-team/
+          if git ls-files | grep -E '(^|/)\.product-team/|(^|/)(idea-validation|product-definition|tasks|PROMO|AUDIT|DEPLOY|RELEASE|RELEASE-HANDOFF|OPERATIONS|ROADMAP|TECH-DESIGN|PRD)\.md$|(^|/)research(-|/)' ; then
+            echo "Found private product-team materials in the public payload"
+            exit 1
+          fi
+          echo "Private work materials are excluded"
