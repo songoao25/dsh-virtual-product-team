@@ -27,12 +27,12 @@ From start to finish, you never write code, never learn the process, and never n
 |---|---|---|
 | 1. Idea validation | Research market / competitors / feasibility | Validation conclusion |
 | 2. Product definition & requirements | Positioning + concrete requirements with acceptance criteria | Product definition + PRD |
-| 3. Technical design | Technical plan and task breakdown | Tech design + task list |
-| 4. Development & quality | Implement + test + security audit | Code + audit report |
-| 5. Release & deploy | Prepare distributable artifacts (GitHub standards) + go live | README / version / Release / deploy check |
-| 6. Promotion & cold start | Launch kit (video script / article / channels) | Promo materials |
-| 7. Operations & growth | Metrics dashboard, feedback channels, growth actions | Operations plan |
-| 8. Iteration & maintenance | Feedback pool, roadmap, then loop to the next round | Roadmap |
+| 3. Technical design | Technical plan and task breakdown | Private tech design + task list |
+| 4. Development & quality | Implement + test + security audit | Code + private audit record |
+| 5. Release & deploy | Prepare distributable artifacts (GitHub standards) + go live | README / version / Release; private run record |
+| 6. Promotion & cold start | Launch kit (video script / article / channels) | Private promo materials, never published with the product |
+| 7. Operations & growth | Metrics dashboard, feedback channels, growth actions | Private operating records |
+| 8. Iteration & maintenance | Feedback pool, roadmap, then loop to the next round | Private iteration records |
 
 ## Installation
 

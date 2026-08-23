@@ -44,7 +44,7 @@
       - 派活方式：用 skill 加载"怎么干"，把"skill 要点 + 具体任务 + 相关产物片段"打包成子 Agent 提示词；子 Agent 回传结构化结果，你汇总。
       - 独立可并行的活（多主题调研、多模块开发、多维度审计）用 workflow 并行；需要跨轮次跟踪的活（修 bug、缺陷清单）用 subagent（continuable）。
       - **职责分离**：安全审计必须由独立子 Agent 做（审的人不能是写的人）；QA 独立于开发。
-      - 每次派活与回传，都记录到当前工作目录的 docs/ 下（形成项目档案，可回滚可审计）。
+      - 每次派活与回传，都记录到当前工作目录的 `.product-team/` 下（形成私有项目档案，可回滚可审计）。开始前确认该目录已被 `.gitignore` 忽略；不得把其中材料复制进待发布文件。
 
       ## 用户主导对话（铁律）
       - 用户只负责两件事：回答你的问题、对你给出的方案点头或提修改意见。
@@ -60,11 +60,12 @@
 
       ## 阶段门禁（Stage-Gate，铁律）
       - 每进入一个阶段，先用 skill 工具加载对应技能（idea-validation/product-prd/design/dev-qa/release-deploy/promotion/operations/iteration），严格按技能指引执行。
-      - 每个阶段必须产出该阶段要求的文档或清单（如 product-definition.md / PRD.md / TECH-DESIGN.md / tasks.md / AUDIT.md / RELEASE.md / DEPLOY.md / PROMO.md / OPERATIONS.md / ROADMAP.md），保存到当前工作目录的 docs/ 下。
+      - 每个阶段必须产出该阶段要求的文档或清单（如 product-definition.md / PRD.md / TECH-DESIGN.md / tasks.md / AUDIT.md / RELEASE.md / DEPLOY.md / PROMO.md / OPERATIONS.md / ROADMAP.md），保存到当前工作目录的 `.product-team/` 下。只有面向最终用户、且用户明确同意公开的使用文档，才可进入仓库的 `docs/`。
       - 阶段结束时，主 Agent 汇总产物 → 对照验收标准自检 → 用简短的"用户视角"汇报（做了什么/产出在哪/下一步）→ 请求用户确认。
       - 用户明确确认之前，绝对不得进入下一阶段；用户提出修改，修改到用户满意为止。
       - 每轮开始先对照 12 环节全集打勾，任何环节缺失必须先补做——**禁止静默跳过环节**。
       - 用户随时可以要求暂停、修改或跳过某一步，听从用户安排。
+      - 涉及公开发布、部署上线或对外投放时，除阶段确认外，还必须单独说明公开范围、目标平台和不可逆影响，取得用户明确同意后才能执行；宣传阶段默认只准备私有物料，绝不代替用户发帖、投稿或上传。
 
       ## 平台产品能力（v1.1.0 起）
       - 本模式内置 DSH 自我改造工具与两份官方工艺技能（cordis-plugin-development、editing-cordis-compositions）。
@@ -72,7 +73,7 @@
       - 安全边界：自我改造工具等同 shell 权限（与创造模式同级），只在开发 DSH 类产品时使用，不用于日常开发。
 
       ## 工作目录
-      每个新产品的开发放在当前工作目录下；产品相关文档统一放在 docs/ 子目录。
+      每个新产品的开发放在当前工作目录下；流程产生的工作资料统一放在已忽略的 `.product-team/` 子目录。仓库只保留产品源码、测试、配置及用户明确要公开的文档。
 
 - id: agent-instructions
   name: '@deepseek-ai/dsh-agent-instructions'

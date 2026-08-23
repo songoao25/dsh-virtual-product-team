@@ -28,7 +28,12 @@ description: 发布与部署阶段——发布准备（README/CHANGELOG/LICENSE/
 - **交接原则**：发布涉及凭据与对外操作，由主 Agent/用户侧执行更稳；发布后主动给"先看哪三个指标"
 
 ## 目标
-仓库达到符合 GitHub 全规范的可分发状态 + 实际部署上线可验证，产出 `docs/RELEASE.md` + `docs/DEPLOY.md`。
+仓库达到符合 GitHub 全规范的可分发状态 + 实际部署上线可验证。发布记录、部署记录和交接材料保存到已忽略的 `.product-team/`，不进入公开仓库。
+
+## 发布内容边界（强制）
+- **可公开内容**：产品源码、测试、构建与部署配置、依赖清单、许可证、变更记录，以及面向最终用户且明确需要公开的使用文档。
+- **私有工作资料**：调研、PRD、技术设计、任务清单、审计报告、发布/部署记录、交接单、截图、日志、宣传稿、渠道计划、运营数据和路线图。统一放在 `.product-team/`，并写入 `.gitignore`。
+- 不得以“文档”名义绕过边界：只有用户明确要求公开、且已按零密钥/零个人路径审查的文档，才能进入 `docs/`。
 
 ## 步骤
 
@@ -55,6 +60,8 @@ description: 发布与部署阶段——发布准备（README/CHANGELOG/LICENSE/
    - [ ] **禁静态徽章冒充版本号**；每个徽章 URL 用 `curl -I` 验证 200；版本徽章显示值 == git tag == CHANGELOG 顶部 == Release title
    **发布前必检**
    - [ ] 零密钥、零个人路径（含 `git log -p --all | grep -iE 'sk-[a-z0-9]|api[_-]?key|BEGIN (RSA|OPENSSH|EC) PRIVATE'` 历史扫描）
+   - [ ] `.product-team/` 已由 `.gitignore` 忽略；`git check-ignore -q .product-team/` 返回成功
+   - [ ] 暂存区仅含可公开内容；无 `.product-team/`、`docs/PROMO.md`、`docs/RELEASE.md`、`docs/DEPLOY.md`、`docs/RELEASE-HANDOFF.md`、调研稿、日志或本机脚本
    - [ ] 提交信息遵循 Conventional Commits；四件套同步：semver → CHANGELOG → commit → tag → Release 一次完成
 
 2. **探测本机可用的 GitHub 提交 Agent**（`ls /Applications`、`command -v kun`、`command -v gh` 等），整理候选列表。
@@ -64,16 +71,18 @@ description: 发布与部署阶段——发布准备（README/CHANGELOG/LICENSE/
    - 选项：探测到的 Agent（KUN / WorkBuddy / ChatGPT / gh CLI…）+「暂不提交，先放着」。
    - 用户选某 Agent → 执行提交；选暂不提交 → 说明材料已就绪。
 
+3.1 **公开内容门禁**（必须单独确认）：展示仓库可见性、仓库名、拟暂存文件清单和 Release 内容；说明公开后可被复制、历史难以彻底收回。只有用户明确确认“按这份清单公开”才能继续。部署仅在产品确有部署目标且用户同意时执行；否则记录“无需部署”，不把 GitHub 发布误报为上线。
+
 4. **执行提交与发布**（按用户所选 Agent）：
-   - 若能直接调用所选 Agent（如 KUN 的 `kun exec bash` 通道）：直接执行——`git init -b main && git add -A` → `git commit -m "feat: <产品名> v1.0.0——<一句话>"` → `git tag v1.0.0` → `gh repo create <owner>/<repo> --public --source . --push` → `git push origin v1.0.0` → `gh release create v1.0.0 --title "<产品名> v1.0.0" --notes-file <文件>`
-   - 若不能直接调用：生成标注"给所选 Agent"的交接材料（`docs/RELEASE-HANDOFF.md` + 对话内提示词）。
+   - 若能直接调用所选 Agent（如 KUN 的 `kun exec bash` 通道）：先建立/核对 `.product-team/` 忽略规则；**禁止 `git add -A` 或 `git add .`**。逐项暂存已审查的公开文件（例如 `git add README.md LICENSE CHANGELOG.md src tests .github package.json`），再执行 `git diff --cached --name-only` 与 `git diff --cached --check`；只有清单与发布内容边界一致才可提交、tag、建仓和创建 Release。
+   - 若不能直接调用：生成标注"给所选 Agent"的私有交接材料（`.product-team/RELEASE-HANDOFF.md` + 对话内提示词）。
    - **验证**：用 GitHub API 独立确认仓库/分支/tag/Release 存在。
 
 ### 第二部分：部署上线（⑨）
 
 5. **确认部署方式**：根据产品类型确定怎么部署（DSH 插件 → install.sh；Web 应用 → 托管平台）。用大白话向用户说明"装好后怎么用"。
 6. **执行部署 + 冒烟测试**：部署后跑一遍核心功能确认可用。
-7. **写部署文档**（`docs/DEPLOY.md`）：部署方式 / 冒烟测试结果 / 回滚方案 / 上线检查清单。
+7. **写部署记录**（`.product-team/DEPLOY.md`）：部署方式 / 冒烟测试结果 / 回滚方案 / 上线检查清单。若用户需要公开安装指南，应精简后写入 README 或用户明确指定的公开文档，不得直接复制运行记录。
 
 8. **Gate 5 汇报**：向用户汇报"已发布到 GitHub（链接）+ 已部署上线（冒烟通过，回滚方案），按你选的 <Agent> 执行完成"，**用户确认才进阶段 6**。
 

@@ -19,7 +19,7 @@ description: 产品定义与需求阶段——产品定位 + PRD 需求文档（
 - 缺用户输入时明确说"需确认"，不假装需求已确认。
 
 ## 目标
-产出 `docs/product-definition.md` + `docs/PRD.md`，每条需求有编号、有验收标准，达到"零歧义"。
+产出 `.product-team/product-definition.md` + `.product-team/PRD.md`，每条需求有编号、有验收标准，达到"零歧义"。它们是私有工作资料，不得发布。
 
 ## 步骤
 
@@ -28,12 +28,12 @@ description: 产品定义与需求阶段——产品定位 + PRD 需求文档（
    - 核心场景：用户会在什么情况下用
    - MVP 范围：第一版做哪几个功能（in），明确不做（out）
    - 成功指标：怎么算做成了（可量化，如"装机量/使用时长的目标"）
-   - 写到 `docs/product-definition.md`
+   - 写到 `.product-team/product-definition.md`
 2. **需求澄清**（逐条与用户确认功能）：把 MVP 范围拆成 3–7 条功能，用大白话逐条问用户"这个功能要不要？"（一次最多 3 条，用 ask_user_question）。
 3. **派 PRD 起草子 Agent**（可选；或主 Agent 直接写）：
    - 把产品定义 + 用户确认的功能清单打包，派 1 个子 Agent 起草完整 PRD（含用户故事、功能与非功能需求、验收标准、非目标）。
    - 子 Agent 提示词模板："你是产品经理。任务：根据产品定义与功能清单写 PRD。每条需求必须有唯一编号（FR-x）和可检查的验收标准。用户是非技术个人开发者。"
-4. **写 PRD**（`docs/PRD.md`），模板：
+4. **写 PRD**（`.product-team/PRD.md`），模板：
 
 ```markdown
 # PRD：<产品名>

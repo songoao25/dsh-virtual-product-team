@@ -7,8 +7,6 @@
 .idea/
 .vscode/
 
-# 本机交接材料（含本机路径，不随仓库分发）
-# RELEASE-HANDOFF.md / KUN-TASK.md 已删（v1.0.0 建仓交接任务早已完成）
-docs/release-notes-v1.0.0.md
-docs/release-notes-v1.1.0.md
-docs/PROMO.md
+# 产品团队的私有工作资料：调研、方案、审计、发布交接、宣传和运营记录。
+# 这些资料可含本机路径、执行上下文或尚未公开的内容，绝不随 GitHub 发布。
+.product-team/
