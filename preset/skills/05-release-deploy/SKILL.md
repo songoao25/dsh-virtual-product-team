@@ -23,7 +23,7 @@ description: 发布与部署阶段——发布准备（README/CHANGELOG/LICENSE/
   - 发布四件套同步：semver → CHANGELOG → commit → tag → Release 一次完成
   - 部署策略意识：蓝绿/金丝雀/滚动（个人产品用最简单方式）；**每次发布必答"怎么回滚"**
   - 可观测性：结构化日志、错误率/延迟指标、健康检查——发布后先看这三个
-- **Code Review/PR 规范**：PR 小而可评审（一个功能一个修复）；PR 描述含 动机/改动/测试；评审看逻辑/边界/可读/安全/带测试
+- **自动审核与合并规范**：PR 小而可审计（一个功能一个修复）；PR 描述含动机/改动/测试。默认由 CI、测试和安全扫描自动审核，全部必需检查通过后自动合并；除非用户另行要求，**不要求人工批准**。配置分支保护时，必需检查名称必须与实际工作流显示名称完全一致；开启 GitHub Auto-merge，使用 squash merge。
 - **Issue 规范**：好 Issue 含复现步骤/期望实际/环境
 - **交接原则**：发布涉及凭据与对外操作，由主 Agent/用户侧执行更稳；发布后主动给"先看哪三个指标"
 
@@ -74,7 +74,9 @@ description: 发布与部署阶段——发布准备（README/CHANGELOG/LICENSE/
 3.1 **公开内容门禁**（必须单独确认）：展示仓库可见性、仓库名、拟暂存文件清单和 Release 内容；说明公开后可被复制、历史难以彻底收回。只有用户明确确认“按这份清单公开”才能继续。部署仅在产品确有部署目标且用户同意时执行；否则记录“无需部署”，不把 GitHub 发布误报为上线。
 
 4. **执行提交与发布**（按用户所选 Agent）：
-   - 若能直接调用所选 Agent（如 KUN 的 `kun exec bash` 通道）：先建立/核对 `.product-team/` 忽略规则；**禁止 `git add -A` 或 `git add .`**。逐项暂存已审查的公开文件（例如 `git add README.md LICENSE CHANGELOG.md src tests .github package.json`），再执行 `git diff --cached --name-only` 与 `git diff --cached --check`；只有清单与发布内容边界一致才可提交、tag、建仓和创建 Release。
+   - 若能直接调用所选 Agent（如 KUN 的 `kun exec bash` 通道）：先建立/核对 `.product-team/` 忽略规则；**禁止 `git add -A` 或 `git add .`**。逐项暂存已审查的公开文件（例如 `git add README.md LICENSE CHANGELOG.md src tests .github package.json`），再执行 `git diff --cached --name-only` 与 `git diff --cached --check`；只有清单与发布内容边界一致才可提交。
+   - 默认走受保护分支的自动流程：推送到 `chore/release-<版本>` 分支 → 创建 PR → 确认必需检查名称与实际工作流一致 → 开启 Auto-merge（squash）。CI、测试和安全扫描全部通过后自动合并到 `main`；不得要求用户或维护者手动批准。
+   - 新建仓库时，启用 Auto-merge；若 GitHub 未提供该能力，清楚说明原因并在检查通过后执行一次普通 squash merge，不能把“等待人工批准”伪装成产品流程的一部分。
    - 若不能直接调用：生成标注"给所选 Agent"的私有交接材料（`.product-team/RELEASE-HANDOFF.md` + 对话内提示词）。
    - **验证**：用 GitHub API 独立确认仓库/分支/tag/Release 存在。
 
