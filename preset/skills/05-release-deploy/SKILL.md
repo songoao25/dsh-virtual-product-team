@@ -33,6 +33,7 @@ description: 发布与部署阶段——发布准备（README/CHANGELOG/LICENSE/
 ## 发布内容边界（强制）
 - **可公开内容**：产品源码、测试、构建与部署配置、依赖清单、许可证、变更记录，以及面向最终用户且明确需要公开的使用文档。
 - **私有工作资料**：调研、PRD、技术设计、任务清单、审计报告、发布/部署记录、交接单、截图、日志、宣传稿、渠道计划、运营数据和路线图。统一放在 `.product-team/`，并写入 `.gitignore`。
+- **宣传物料红线**：宣传资料（视频脚本、文章模板、渠道清单、SEO 关键词、宣传文案等）只存在 `.product-team/`，**严禁进入 GitHub 仓库**——不得 git add、commit、push，不得随 tag/Release 发布，也不得复制进任何待发布文件。
 - 不得以“文档”名义绕过边界：只有用户明确要求公开、且已按零密钥/零个人路径审查的文档，才能进入 `docs/`。
 
 ## 步骤
@@ -61,7 +62,7 @@ description: 发布与部署阶段——发布准备（README/CHANGELOG/LICENSE/
    **发布前必检**
    - [ ] 零密钥、零个人路径（含 `git log -p --all | grep -iE 'sk-[a-z0-9]|api[_-]?key|BEGIN (RSA|OPENSSH|EC) PRIVATE'` 历史扫描）
    - [ ] `.product-team/` 已由 `.gitignore` 忽略；`git check-ignore -q .product-team/` 返回成功
-   - [ ] 暂存区仅含可公开内容；无 `.product-team/`、`docs/PROMO.md`、`docs/RELEASE.md`、`docs/DEPLOY.md`、`docs/RELEASE-HANDOFF.md`、调研稿、日志或本机脚本
+   - [ ] 暂存区仅含可公开内容；无 `.product-team/`、`docs/PROMO.md`、`docs/RELEASE.md`、`docs/DEPLOY.md`、`docs/RELEASE-HANDOFF.md`、调研稿、日志、宣传物料或本机脚本
    - [ ] 提交信息遵循 Conventional Commits；四件套同步：semver → CHANGELOG → commit → tag → Release 一次完成
 
 2. **探测本机可用的 GitHub 提交 Agent**（`ls /Applications`、`command -v kun`、`command -v gh` 等），整理候选列表。
