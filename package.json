@@ -1,6 +1,6 @@
 {
   "name": "dsh-virtual-product-team",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A DeepSeek Harness agent mode that walks you through the full product pipeline — from idea validation to release, promotion, and iteration — by saying \"I have an idea\".",
   "license": "MIT",
   "keywords": [
