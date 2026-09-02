@@ -306,7 +306,7 @@ To customize the call card for an ordinary model Tool, query `tool.call.toolview
 - For toasts, status notices, and frame-wide overlays, query `shell.overlay` first; observe its pointer-events and ordering rules.
 - When the selected target is a global overlay Slot, decide whether the UI should be draggable, how the user shows and hides it, and which existing layers it must cover or remain below.
 - For small sidebar actions, prefer additive inner Slots such as `sidebar.footer.action`; do not replace the entire sidebar.
-- For supplementary content after a conversation turn, query `conversation.chat.turnTail` and register according to its returned chain selector and fallback rules.
+- For supplementary content near a conversation, first inspect the current alpha.4 public slot catalog and choose a supported slot. Use `conversation.session.header.utilities` for session-level utility or status content, `conversation.view` for a conversation surface, or the tool-view slots for tool-specific content. Do not use the removed conversation chat-tail slot or invent a slot name.
 
 ## Themes and styles
 
