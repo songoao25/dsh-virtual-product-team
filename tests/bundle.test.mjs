@@ -62,19 +62,35 @@ record('cordis.patch.yml valid, providerName unique, roots disabled', () => {
   assert.equal((yml.match(/providerName:/g) || []).length, 1, 'providerName must appear exactly once')
   assert.equal((yml.match(/includeDefaultRoots:/g) || []).length, 1, 'includeDefaultRoots must appear exactly once')
   assert.ok(/includeDefaultRoots:\s*false/.test(yml), 'includeDefaultRoots must be false')
+  assert.match(yml, /name:\s*'@deepseek-ai\/dsh-skill-filesystem'/, 'alpha.4 skill filesystem package must be mounted')
+  assert.match(yml, /providerName:\s*dsh-virtual-product-team/, 'providerName must remain stable')
   assert.ok(yml.includes('preset/skills/'), 'patch must point at preset/skills/')
+  assert.match(yml, /new URL\('preset\/skills\/', baseUrl\)/, 'customSkillDirs must resolve relative to baseUrl')
 })
 
-// --- preset ships at least 8 stage SKILL.md files ---
-record('preset/skills exists with >= 8 SKILL.md files', () => {
+// --- preset ships the 8 stage skills plus 2 official authoring skills ---
+record('preset/skills exists with 10 alpha.4 skill loading paths', () => {
   const skillsDir = join(root, 'preset', 'skills')
   const entries = readdirSync(skillsDir, { withFileTypes: true })
 
   const skillFiles = entries.filter(
     (e) => e.isDirectory() && statSync(join(skillsDir, e.name, 'SKILL.md')).isFile(),
   )
-  assert.ok(skillFiles.length >= 8, `expected >=8 skills, found ${skillFiles.length}`)
+  assert.equal(skillFiles.length, 10, `expected 10 skills, found ${skillFiles.length}`)
   console.log(`  (found ${skillFiles.length} skills in preset/skills/)`)
+})
+
+record('Cordis authoring guidance uses alpha.4 public slots', () => {
+  const skill = readFileSync(
+    join(root, 'preset', 'skills', 'cordis-plugin-development', 'SKILL.md'),
+    'utf8',
+  )
+  const removedConversationTailSlot = ['conversation', 'chat', 'turnTail'].join('.')
+  const removedAssistantActionsSlot = ['conversation', 'chat', 'assistant-actions'].join('.')
+  assert.ok(!skill.includes(removedConversationTailSlot), 'removed chat-tail slot must not be referenced')
+  assert.ok(!skill.includes(removedAssistantActionsSlot), 'removed assistant-actions slot must not be referenced')
+  assert.match(skill, /current alpha\.4 public slot catalog/, 'guidance must inspect the current slot catalog')
+  assert.match(skill, /conversation\.session\.header\.utilities/, 'guidance must name a supported public slot')
 })
 
 // --- summary ---
