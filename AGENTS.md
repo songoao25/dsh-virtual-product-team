@@ -22,7 +22,7 @@
 - 修改 `preset/` 后需同步安装副本：`~/.dsh/.agent-presets/dsh-virtual-product-team/`
 - 对外文档（README/CHANGELOG）只写用户视角功能，严禁开发过程流水账与内部代号
 - 提交遵循 Conventional Commits（feat/fix/docs/test/chore）
-- 分发铁律：零密钥、零个人路径、作者署名 songoao25、只用语义化版本号；`.product-team/` 内的调研、方案、审计、交接、宣传和运营资料不得提交
+- 分发铁律：零密钥、零个人路径、作者署名 SONGOAO25、只用语义化版本号；`.product-team/` 内的调研、方案、审计、交接、宣传和运营资料不得提交
 - 05-release-deploy 技能负责 GitHub 发布：先探测本机 Agent → 出选择题问用户用哪个 → 按所选执行（可直调如 KUN exec 则直调）
 
 ## 常用命令

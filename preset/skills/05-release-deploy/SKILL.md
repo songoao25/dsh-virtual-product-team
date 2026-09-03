@@ -43,7 +43,7 @@ description: 发布与部署阶段——发布准备（README/CHANGELOG/LICENSE/
 1. **GitHub 发布规范检查清单**（逐项检查并补齐）：
    **标准文件（Must）**
    - [ ] `README.md`（英文）+ `README.zh-CN.md`（中文）：用户视角，覆盖 是什么/怎么装/怎么用/常见问题；**只写用户视角功能，严禁写开发过程流水账与内部代号**；中英文顶部互含语言切换链接
-   - [ ] `LICENSE`（默认 MIT，作者署名 songoao25）
+   - [ ] `LICENSE`（默认 MIT，作者署名 SONGOAO25）
    - [ ] `CHANGELOG.md`（Keep a Changelog 格式）
    - [ ] `.gitignore`（排除依赖/密钥/本地数据/日志）
    - [ ] 版本号：语义化 semver，与 Git tag 一致

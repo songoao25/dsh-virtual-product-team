@@ -2,12 +2,12 @@
 
 [**English**](README.md) | **中文**
 
-[![License: MIT](https://img.shields.io/github/license/songoao25/dsh-virtual-product-team)](https://github.com/songoao25/dsh-virtual-product-team/blob/main/LICENSE)
-[![Release](https://img.shields.io/github/v/release/songoao25/dsh-virtual-product-team)](https://github.com/songoao25/dsh-virtual-product-team/releases)
-[![CI](https://img.shields.io/github/actions/workflow/status/songoao25/dsh-virtual-product-team/ci.yml)](https://github.com/songoao25/dsh-virtual-product-team/actions)
-[![Last Commit](https://img.shields.io/github/last-commit/songoao25/dsh-virtual-product-team)](https://github.com/songoao25/dsh-virtual-product-team)
-[![Stars](https://img.shields.io/github/stars/songoao25/dsh-virtual-product-team)](https://github.com/songoao25/dsh-virtual-product-team)
-[![Dependabot](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=dependabot)](https://github.com/songoao25/dsh-virtual-product-team/security/dependabot)
+[![License: MIT](https://img.shields.io/github/license/SONGOAO25/dsh-virtual-product-team)](https://github.com/SONGOAO25/dsh-virtual-product-team/blob/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/SONGOAO25/dsh-virtual-product-team)](https://github.com/SONGOAO25/dsh-virtual-product-team/releases)
+[![CI](https://img.shields.io/github/actions/workflow/status/SONGOAO25/dsh-virtual-product-team/ci.yml)](https://github.com/SONGOAO25/dsh-virtual-product-team/actions)
+[![Last Commit](https://img.shields.io/github/last-commit/SONGOAO25/dsh-virtual-product-team)](https://github.com/SONGOAO25/dsh-virtual-product-team)
+[![Stars](https://img.shields.io/github/stars/SONGOAO25/dsh-virtual-product-team)](https://github.com/SONGOAO25/dsh-virtual-product-team)
+[![Dependabot](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=dependabot)](https://github.com/SONGOAO25/dsh-virtual-product-team/security/dependabot)
 
 把 DeepSeek Harness 变成你的虚拟产品开发团队——说一句"我有个想法"，AI 就以产品经理 → 工程师 → QA → 发布员的角色，带你走完从想法到发布的完整流程。你只需要说话和拍板，不需要懂任何技术。
 
@@ -39,7 +39,7 @@
 前置条件：已安装 DeepSeek Harness（`dsh` 在 PATH 中）。
 
 ```bash
-git clone https://github.com/songoao25/dsh-virtual-product-team.git
+git clone https://github.com/SONGOAO25/dsh-virtual-product-team.git
 cd dsh-virtual-product-team
 ./install.sh
 ```
@@ -90,4 +90,4 @@ dsh plugin --profile <profile名> add dsh-virtual-product-team
 
 ## 许可证
 
-MIT © songoao25
+MIT © SONGOAO25
