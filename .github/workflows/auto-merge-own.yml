@@ -1,0 +1,25 @@
+name: Auto-merge own PRs
+
+# 僅倉庫擁有者 (repository_owner) 的 PR 自動開啟 auto-merge（CI 通過後自動 squash），
+# 其他人保持手動，需人工審核與手動合併。符合業界 trust-by-author 慣例。
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  enable-auto-merge:
+    if: github.event.pull_request.user.login == github.repository_owner && github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable auto-merge (squash) for owner PR
+        run: |
+          echo "Owner PR #${{ github.event.pull_request.number }} by ${{ github.event.pull_request.user.login }} (owner=${{ github.repository_owner }}) → enable auto-merge (squash)"
+          gh pr merge --auto --squash "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
